@@ -228,6 +228,6 @@ if __name__ == '__main__':
 
 ```
 * Output
-<img src="DATA/talker-listener -cpp.png">
+<img src="DATA/talker-listener using bool int char.png">
 
 
