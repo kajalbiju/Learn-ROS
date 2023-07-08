@@ -99,7 +99,7 @@ chmod +x beginner_tutorials/src/listener.py
 
 <img src="DATA/talker-listener.png">
 
-* Codes for c++
+* Codes for c++ (2.2)
   
 ```
 cd beginner_tutorials/src
@@ -163,6 +163,6 @@ int main(int argc, char** argv)
 
 ```
 
-*Output
-<img src="DATA/talker-listener.png">
+* Output
+<img src="DATA/talker-listener -cpp.png">
 
