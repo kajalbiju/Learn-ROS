@@ -25,11 +25,12 @@
     rosrun turtlesim turtle_teleop_key
 ```
 **Turtle-bot with teleop key**  
+* Output
 
 <img src="DATA/turtleism.png">
 
 **Talker-Listener example**  (1.4)
-* Code
+* Codes for python
   
 ```
 cd catkin_ws/src
@@ -94,4 +95,74 @@ chmod +x beginner_tutorials/src/listener.py
 
 ```
 
+* Output
+
 <img src="DATA/talker-listener.png">
+
+* Codes for c++
+  
+```
+cd beginner_tutorials/src
+touch talker.cpp
+touch listener.cpp
+```
+```
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+rospack find beginner_tutorials
+rosrun beginner_tutorials talker
+rosrun beginner_tutorials listener
+
+```
+
+* Code for talker.cpp
+```
+ #include "ros/ros.h"
+#include "std_msgs/String.h"
+
+int main(int argc, char** argv)
+{
+    ros::init(argc, argv, "talker");
+    ros::NodeHandle nh;
+    ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 10);
+    ros::Rate rate(10);  // 10 Hz
+
+    while (ros::ok())
+    {
+        std_msgs::String message;
+        message.data = "Hello, ROS!";
+        ROS_INFO("%s", message.data.c_str());
+        pub.publish(message);
+        rate.sleep();
+    }
+
+    return 0;
+}
+
+```
+* Code for listener.cpp
+```
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+
+void callback(const std_msgs::String::ConstPtr& msg)
+{
+    ROS_INFO("I heard: %s", msg->data.c_str());
+}
+
+int main(int argc, char** argv)
+{
+    ros::init(argc, argv, "listener");
+    ros::NodeHandle nh;
+    ros::Subscriber sub = nh.subscribe("chatter", 10, callback);
+    ros::spin();
+
+    return 0;
+}
+
+```
+
+*Output
+
+
