@@ -166,3 +166,68 @@ int main(int argc, char** argv)
 * Output
 <img src="DATA/talker-listener -cpp.png">
 
+* Codes for int, bool and char (2.1)
+* talker.py:
+  
+```
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import Int32, Bool, Char
+
+def talker():
+    pub_int = rospy.Publisher('chatter_int', Int32, queue_size=10)
+    pub_bool = rospy.Publisher('chatter_bool', Bool, queue_size=10)
+    pub_char = rospy.Publisher('chatter_char', Char, queue_size=10)
+    rospy.init_node('talker', anonymous=True)
+    rate = rospy.Rate(10)  # 10 Hz
+
+    while not rospy.is_shutdown():
+        number = 42
+        flag = True
+        letter = 'A'
+        rospy.loginfo("Publishing: number={}, flag={}, letter={}".format(number, flag, letter))
+        pub_int.publish(number)
+        pub_bool.publish(flag)
+        pub_char.publish(letter)
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        talker()
+    except rospy.ROSInterruptException:
+        pass
+
+```
+
+* listener.py
+```
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import Int32, Bool, Char
+
+def int_callback(data):
+    rospy.loginfo("Received int: {}".format(data.data))
+
+def bool_callback(data):
+    rospy.loginfo("Received bool: {}".format(data.data))
+
+def char_callback(data):
+    rospy.loginfo("Received char: {}".format(data.data))
+
+def listener():
+    rospy.init_node('listener', anonymous=True)
+    rospy.Subscriber('chatter_int', Int32, int_callback)
+    rospy.Subscriber('chatter_bool', Bool, bool_callback)
+    rospy.Subscriber('chatter_char', Char, char_callback)
+    rospy.spin()
+
+if __name__ == '__main__':
+    listener()
+
+```
+* Output
+<img src="DATA/talker-listener -cpp.png">
+
+
