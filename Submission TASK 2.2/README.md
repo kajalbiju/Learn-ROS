@@ -166,7 +166,7 @@ int main(int argc, char** argv)
 * Output
 <img src="DATA/talker-listener -cpp.png">
 
-* Codes for int, bool and char (2.1)
+* Codes for int, bool and char (2.2)
 * talker.py:
   
 ```
