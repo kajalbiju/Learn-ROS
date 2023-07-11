@@ -21,8 +21,12 @@
 
 * Running turtlesim  (1.3)
 ```
-    roscore  
-    rosrun turtlesim turtlesim_node  
+    roscore
+```
+```
+    rosrun turtlesim turtlesim_node
+```
+```
     rosrun turtlesim turtle_teleop_key
 ```
 **Turtle-bot with teleop key**  
