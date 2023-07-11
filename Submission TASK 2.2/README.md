@@ -63,6 +63,8 @@ if __name__ == '__main__':
         talker()
     except rospy.ROSInterruptException:
         pass
+```
+```
 chmod +x beginner_tutorials/src/talker.py
 
 ```
@@ -91,15 +93,39 @@ def listener():
 
 if __name__ == '__main__':
     listener()
-
+```
+```
 chmod +x beginner_tutorials/src/listener.py
 
 ```
 
+* Creating a Python environment
+```
+
+cd ~/ros_env
+python3 -m venv ros_env
+source ros_env/bin/activate
+pip install rospy rospkg catkin_pkg
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+```
+roscore
+```
+```
+rosrun beginner_tutorials talker.py
+```
+```
+rosrun beginner_tutorials listener.py
+
+
+```
+
+
 * Output
 
 <img src="DATA/talker-listener.png">
-
 
 **TASK 2**
 * Codes for c++ (2.1)
