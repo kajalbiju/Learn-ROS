@@ -259,8 +259,24 @@ def listener():
 if __name__ == '__main__':
     listener()
 
-```
+``` 
+
+
 * Output
 <img src="DATA/talker-listener using bool int char.png">
 
+* talker-listener-custom 
+<img src="DATA/talker-listener-custom.png">
+
+
+* TASK 3
+  
+* turtlesim rotate 
+<img src="DATA/turtlesim-rotate.png">
+
+* turtlesim got to goal 
+<img src="DATA/turtlesim-goal.png">
+
+* turtlesim make a D 
+<img src="DATA/turtlesim-D.png">
 
